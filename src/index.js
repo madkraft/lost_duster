@@ -6,15 +6,17 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { createEpicMiddleware } from "redux-observable";
 
 import App from "./App";
+import { rootEpic, rootReducer } from "./redux";
 import registerServiceWorker from "./registerServiceWorker";
-import rootReducer from "./reducers/rootReducer";
+
+const epicMiddleware = createEpicMiddleware(rootEpic);
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevTools(applyMiddleware(epicMiddleware))
 );
 
 ReactDOM.render(

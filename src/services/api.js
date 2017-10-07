@@ -1,36 +1,19 @@
-const baseUrl = "http://api.football-data.org/v1";
+import { Observable } from "rxjs";
 
-export default {
-  fetch: {
-    league: (id, part) =>
-      fetch(`${baseUrl}/competitions/${id}/${part}`, {
-        headers: {
-          "X-Auth-Token": "6361b22678c9489a837087e19ae65447"
-        }
-      }).then(res => res.json())
+const baseUrl = "http://api.football-data.org/v1";
+const headers = {
+  headers: {
+    "X-Auth-Token": "6361b22678c9489a837087e19ae65447"
   }
 };
 
-// export const userLoggedIn = user => ({
-//   type: USER_LOGGED_IN,
-//   user
-// });
+function fetchLeague(id) {
+  const request = fetch(`${baseUrl}/competitions/${id}`, headers).then(res =>
+    res.json()
+  );
+  return Observable.fromPromise(request);
+}
 
-// export const login = credentials => dispatch =>
-//   api.user.login(credentials).then(user => dispatch(userLoggedIn(user)));
-
-// export const fetchCompetition = (id, part) => {
-//   return dispatch => {
-//     dispatch({ type: "FETCH_LEAGUE_START" });
-//     fetch(`${baseUrl}/competitions/${id}/${part}`, {
-//       headers: {
-//         "X-Auth-Token": "6361b22678c9489a837087e19ae65447"
-//       }
-//     })
-//       .then(res => res.json())
-//       .then(competition => {
-//         dispatch({ type: "FETCH_LEAGUE_SUCCESS", payload: competition });
-//       })
-//       .catch(err => console.error(err));
-//   };
-// };
+export default {
+  fetchLeague
+};

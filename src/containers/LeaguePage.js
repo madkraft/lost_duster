@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Table } from "semantic-ui-react";
+import { connect } from "react-redux";
 import CompetitionMenu from "../components/CompetitionMenu";
-import api from "../services/api";
+import { loadLeague } from "../redux/leagues";
 
 class HomePage extends Component {
   componentWillMount() {
-    api.fetch.league(450, "leagueTable").then(res => console.log(res));
+    this.props.loadLeague(445);
+    // api.fetch.league(450, "leagueTable").then(res => console.log(res));
   }
 
   render() {
@@ -49,4 +51,14 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+function mapState(state) {
+  return state;
+}
+
+function mapDispatch(dispatch) {
+  return {
+    loadLeague: id => dispatch(loadLeague(id))
+  };
+}
+
+export default connect(mapState, mapDispatch)(HomePage);

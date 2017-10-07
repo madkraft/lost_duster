@@ -1,8 +1,8 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
-import LeaguePage from "./containers/LeaguePage";
-import LoginPage from "./containers/LoginPage";
+import LeaguePage from './containers/LeaguePage';
+import LoginPage from './containers/LoginPage';
 
 const App = () => (
   <div className="ui container">
