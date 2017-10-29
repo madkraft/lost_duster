@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import LeaguePage from "./containers/LeaguePage";
 import FixturePage from "./containers/FixturePage";
@@ -18,8 +18,8 @@ const App = () => (
       exact
       component={FixturePage}
     />
-    <Redirect from="/" exact to="/competitions/445/leagueTable" />
   </div>
 );
+    // <Redirect from="/" exact to="/competitions/445/leagueTable" />
 
 export default App;
