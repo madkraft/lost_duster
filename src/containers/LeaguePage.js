@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "semantic-ui-react";
 import { connect } from "react-redux";
+import { pathOr } from "ramda";
 import { loadLeague } from "../redux/leagues";
 import { TABLE_FIELDS } from "../constants";
 
@@ -12,9 +13,9 @@ class HomePage extends Component {
   }
 
   render() {
-    const { leagueCaption, matchday } = this.props;
-    const standing = this.props.standing || [];
-
+    const data = pathOr({}, ["data"], this.props);
+    const { leagueCaption, matchday } = data;
+    const standing = data.standing || [];
     return (
       <div>
         <h1>{leagueCaption}</h1>
@@ -51,7 +52,9 @@ function mapState(state) {
     league => league.id === CURRENT_LEAGUE
   );
   if (res) {
-    return res.data;
+    return {
+      data: res.data
+    };
   }
   return {};
 }
