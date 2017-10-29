@@ -9,15 +9,17 @@ const CURRENT_LEAGUE = 445;
 
 class HomePage extends Component {
   componentWillMount() {
+    const currentLeague = this.props.match.params.leagueId;
+
     if (this.props.status) {
-      const res = this.props.status.find(
-        league => league.id === CURRENT_LEAGUE
+      const leagueStatus = this.props.status.find(
+        league => league.id === currentLeague
       );
-      if (res.loaded) {
+      if (leagueStatus.loaded) {
         return;
       }
     }
-    this.props.loadLeague(CURRENT_LEAGUE);
+    this.props.loadLeague(currentLeague);
   }
 
   render() {

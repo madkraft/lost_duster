@@ -14,14 +14,14 @@ export default class CompetitionMenu extends Component {
       <Menu secondary fluid widths={2}>
         <Menu.Item
           as={Link}
-          to="/competitions/424/leagueTable"
+          to="/competitions/445/leagueTable"
           name="standings"
           active={activeItem === "standings"}
           onClick={this.handleItemClick}
         />
         <Menu.Item
           as={Link}
-          to="/competitions/424/fixtures"
+          to="/competitions/445/fixtures"
           name="fixtures"
           active={activeItem === "fixtures"}
           onClick={this.handleItemClick}

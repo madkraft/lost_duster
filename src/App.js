@@ -18,7 +18,7 @@ const App = () => (
       exact
       component={FixturePage}
     />
-    <Redirect from="/" exact to="/competitions/424/leagueTable" />
+    <Redirect from="/" exact to="/competitions/445/leagueTable" />
   </div>
 );
 
