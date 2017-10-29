@@ -1,10 +1,10 @@
 import api from "../services/api";
 import { setLoadedLeagues, changeLoadedStatus } from "../services/utils";
+import { SELECTED_LEAGUES } from "../constants";
 
 const FETCH_COMPETITION = "leagues/FETCH_COMPETITION";
 const FETCH_COMPETITION_DONE = "leagues/FETCH_COMPETITION_DONE";
 
-const SELECTED_LEAGUES = [452, 445, 455, 456];
 const initialState = {
   selectedLeagues: SELECTED_LEAGUES,
   status: setLoadedLeagues(SELECTED_LEAGUES, false),
@@ -16,7 +16,6 @@ export function reducer(state = initialState, action = {}) {
     case FETCH_COMPETITION:
       return state;
     case FETCH_COMPETITION_DONE:
-      console.log(action);
       return {
         ...state,
         status: changeLoadedStatus(state.status, action.payload.id),

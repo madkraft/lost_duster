@@ -8,9 +8,10 @@ const headers = {
 };
 
 function fetchLeague(id) {
-  const request = fetch(`${baseUrl}/competitions/${id}`, headers).then(res =>
-    res.json()
-  );
+  const request = fetch(
+    `${baseUrl}/competitions/${id}/leagueTable`,
+    headers
+  ).then(res => res.json());
   return Observable.fromPromise(request);
 }
 
