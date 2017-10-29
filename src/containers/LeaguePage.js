@@ -9,6 +9,14 @@ const CURRENT_LEAGUE = 445;
 
 class HomePage extends Component {
   componentWillMount() {
+    if (this.props.status) {
+      const res = this.props.status.find(
+        league => league.id === CURRENT_LEAGUE
+      );
+      if (res.loaded) {
+        return;
+      }
+    }
     this.props.loadLeague(CURRENT_LEAGUE);
   }
 
@@ -16,6 +24,7 @@ class HomePage extends Component {
     const data = pathOr({}, ["data"], this.props);
     const { leagueCaption, matchday } = data;
     const standing = data.standing || [];
+
     return (
       <div>
         <h1>{leagueCaption}</h1>
@@ -53,7 +62,8 @@ function mapState(state) {
   );
   if (res) {
     return {
-      data: res.data
+      data: res.data,
+      status: state.leagues.status
     };
   }
   return {};
