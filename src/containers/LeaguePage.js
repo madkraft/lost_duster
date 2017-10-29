@@ -24,26 +24,21 @@ class HomePage extends Component {
         <Table basic="very" unstackable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>#</Table.HeaderCell>
-              <Table.HeaderCell>Team</Table.HeaderCell>
-              <Table.HeaderCell>PG</Table.HeaderCell>
-              <Table.HeaderCell>W</Table.HeaderCell>
-              <Table.HeaderCell>D</Table.HeaderCell>
-              <Table.HeaderCell>L</Table.HeaderCell>
-              <Table.HeaderCell>P</Table.HeaderCell>
+              {TABLE_FIELDS.map(field => (
+                <Table.HeaderCell key={field.field}>
+                  {field.label}
+                </Table.HeaderCell>
+              ))}
             </Table.Row>
           </Table.Header>
-
           <Table.Body>
             {standing.map(place => (
               <Table.Row key={place.position}>
-                <Table.Cell>{place.position}</Table.Cell>
-                <Table.Cell>{place.teamName}</Table.Cell>
-                <Table.Cell>{place.playedGames}</Table.Cell>
-                <Table.Cell>{place.wins}</Table.Cell>
-                <Table.Cell>{place.draws}</Table.Cell>
-                <Table.Cell>{place.losses}</Table.Cell>
-                <Table.Cell>{place.points}</Table.Cell>
+                {TABLE_FIELDS.map(column => (
+                  <Table.Cell key={column.field}>
+                    {place[column.field]}
+                  </Table.Cell>
+                ))}
               </Table.Row>
             ))}
           </Table.Body>
