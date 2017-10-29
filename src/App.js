@@ -1,11 +1,13 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
 
-import LeaguePage from './containers/LeaguePage';
-import LoginPage from './containers/LoginPage';
+import LeaguePage from "./containers/LeaguePage";
+import FixturePage from "./containers/FixturePage";
+import CompetitionMenu from "./components/CompetitionMenu";
 
 const App = () => (
   <div className="ui container">
+    <CompetitionMenu />
     <Route
       path="/competitions/:leagueId/leagueTable"
       exact
@@ -14,7 +16,7 @@ const App = () => (
     <Route
       path="/competitions/:leagueId/fixtures"
       exact
-      component={LoginPage}
+      component={FixturePage}
     />
     <Redirect from="/" exact to="/competitions/424/leagueTable" />
   </div>

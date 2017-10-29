@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "semantic-ui-react";
 import { connect } from "react-redux";
-import CompetitionMenu from "../components/CompetitionMenu";
 import { loadLeague } from "../redux/leagues";
 import { TABLE_FIELDS } from "../constants";
 
@@ -18,7 +17,6 @@ class HomePage extends Component {
 
     return (
       <div>
-        <CompetitionMenu />
         <h1>{leagueCaption}</h1>
         <p>Matchday {matchday}</p>
         <Table basic="very" unstackable>

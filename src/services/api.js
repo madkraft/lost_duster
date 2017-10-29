@@ -15,6 +15,15 @@ function fetchLeague(id) {
   return Observable.fromPromise(request);
 }
 
+function fetchFixture(id, matchday) {
+  const request = fetch(
+    `${baseUrl}/competitions/${id}/fixtures?matchday=${matchday}`,
+    headers
+  ).then(res => res.json());
+  return Observable.fromPromise(request);
+}
+
 export default {
-  fetchLeague
+  fetchLeague,
+  fetchFixture
 };
