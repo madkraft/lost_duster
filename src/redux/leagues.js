@@ -7,6 +7,7 @@ const FETCH_COMPETITION_DONE = "leagues/FETCH_COMPETITION_DONE";
 
 const initialState = {
   selectedLeagues: SELECTED_LEAGUES,
+  currentLeague: null,
   status: setLoadedLeagues(SELECTED_LEAGUES, false),
   standings: []
 };
@@ -14,7 +15,10 @@ const initialState = {
 export function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case FETCH_COMPETITION:
-      return state;
+      return {
+        ...state,
+        currentLeague: action.payload
+      };
     case FETCH_COMPETITION_DONE:
       return {
         ...state,

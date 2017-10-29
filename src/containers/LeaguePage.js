@@ -5,12 +5,9 @@ import { pathOr } from "ramda";
 import { loadLeague } from "../redux/leagues";
 import { TABLE_FIELDS } from "../constants";
 
-const CURRENT_LEAGUE = 445;
-
-class HomePage extends Component {
+class LeaguePage extends Component {
   componentWillMount() {
-    const currentLeague = this.props.match.params.leagueId;
-
+    const currentLeague = parseInt(this.props.match.params.leagueId, 10);
     if (this.props.status) {
       const leagueStatus = this.props.status.find(
         league => league.id === currentLeague
@@ -59,12 +56,12 @@ class HomePage extends Component {
 }
 
 function mapState(state) {
-  const res = state.leagues.standings.find(
-    league => league.id === CURRENT_LEAGUE
+  const league = state.leagues.standings.find(
+    league => league.id === state.leagues.currentLeague
   );
-  if (res) {
+  if (league) {
     return {
-      data: res.data,
+      data: league.data,
       status: state.leagues.status
     };
   }
@@ -77,4 +74,4 @@ function mapDispatch(dispatch) {
   };
 }
 
-export default connect(mapState, mapDispatch)(HomePage);
+export default connect(mapState, mapDispatch)(LeaguePage);
