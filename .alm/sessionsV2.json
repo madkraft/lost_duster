@@ -1,0 +1,45 @@
+{
+  "sessions": [
+    {
+      "id": "9f7b9096-25ae-4a83-bade-fb99817dfc6d",
+      "tabLayout": {
+        "type": "stack",
+        "width": 100,
+        "height": 100,
+        "tabs": [
+          {
+            "id": "6e2792b5-acd4-42c8-978d-ab22defe16c6",
+            "relativeUrl": "file://./src/App.tsx",
+            "additionalData": null
+          },
+          {
+            "id": "a5950d51-a35a-4a04-a84b-fd14aba92a1f",
+            "relativeUrl": "file://./src/components/Fixture.tsx",
+            "additionalData": null
+          },
+          {
+            "id": "4e40cee7-a1bb-4ccc-a3df-ab5290c733ed",
+            "relativeUrl": "file://./src/App.tsx",
+            "additionalData": null
+          },
+          {
+            "id": "d7e059ca-d2c9-46d8-90e1-b5b1c4378178",
+            "relativeUrl": "file://./src/components/League.tsx",
+            "additionalData": null
+          },
+          {
+            "id": "b1f6a3bd-38f5-4f28-a230-73248075c0d5",
+            "relativeUrl": "file://./src/index.tsx",
+            "additionalData": null
+          }
+        ],
+        "subItems": [],
+        "activeItemIndex": 0
+      },
+      "lastUsed": 1509910023558,
+      "fileTreeExpanded": true,
+      "selectedTabId": "b1f6a3bd-38f5-4f28-a230-73248075c0d5"
+    }
+  ],
+  "relativePathToTsconfig": "./tsconfig.json"
+}

@@ -1,25 +1,38 @@
 import * as React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 import LeaguePage from './containers/LeaguePage'
-import FixtureList from './components/FixtureList'
+import FixturePage from './containers/FixturePage'
+import TodayGamesPage from './containers/TodayGamesPage'
 import CompetitionMenu from './components/CompetitionMenu'
+import News from './components/News'
 
 const App = () => (
   <div className="ui container">
     <CompetitionMenu />
+    <Route path="/" exact={true} component={News} />
+    <Route path="/matches" exact={true} component={TodayGamesPage} />
     <Route
       path="/competitions/:leagueId/leagueTable"
       exact={true}
       component={LeaguePage}
     />
     <Route
-      path="/competitions/:leagueId/fixtures"
+      path="/competitions/:leagueId/fixtures/:matchday"
       exact={true}
-      component={FixtureList}
+      component={FixturePage}
+    />
+
+    <Route
+      exact={true}
+      path="/competitions/:leagueId/fixtures"
+      render={props => (
+        <Redirect
+          to={`/competitions/${props.match.params.leagueId}/leagueTable`}
+        />
+      )}
     />
   </div>
 )
-// <Redirect from="/" exact to="/competitions/445/leagueTable" />
 
 export default App

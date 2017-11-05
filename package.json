@@ -18,7 +18,8 @@
     "redux-observable": "^0.16.0",
     "rxjs": "^5.4.3",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.72.0"
+    "semantic-ui-react": "^0.72.0",
+    "typestyle": "^1.5.1"
   },
   "devDependencies": {
     "@types/react": "^16.0.20",

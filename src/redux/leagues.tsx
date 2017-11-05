@@ -1,58 +1,11 @@
-import { Observable } from 'rxjs/Rx'
 import api from '../services/api'
 import { setLoadedLeagues, changeLoadedStatus } from '../services/utils'
 import { SELECTED_LEAGUES } from '../constants'
-import { LeagueStatus } from '../models'
+import { LeagueStatus, Standing, LeagueData } from '../models'
 
 export enum LeagueActions {
   FETCH_COMPETITION = 'leagues/FETCH_COMPETITION',
   FETCH_COMPETITION_DONE = 'leagues/FETCH_COMPETITION_DONE'
-}
-
-export interface Encounter {
-  goals: number
-  goalsAgainst: number
-  wins: number
-  draws: number
-  losses: number
-}
-
-export interface HrefLink {
-  href: string
-}
-
-export interface StandingData {
-  _links: {
-    team: HrefLink
-  }
-  position: number
-  teamName: string
-  crestURI: string
-  playedGames: number
-  points: number
-  goals: number
-  goalsAgainst: number
-  goalDifference: number
-  wins: number
-  draws: number
-  losses: number
-  home: Encounter
-  away: Encounter
-}
-
-export interface LeagueData {
-  _links: {
-    self: HrefLink
-    competition: HrefLink
-  }
-  leagueCaption: string
-  matchday: number
-  standing: StandingData[]
-}
-
-export interface Standing {
-  id: number
-  data: LeagueData
 }
 
 export interface LeagueState {
@@ -69,7 +22,7 @@ const initialState: LeagueState = {
   standings: []
 }
 
-export function reducer(
+export function leaguesReducer(
   state: LeagueState = initialState,
   action: any
 ): LeagueState {
@@ -122,8 +75,8 @@ export function loadLeagueDone(league: Standing): LoadLeagueDone {
 export function loadLeagueEpic(action$: any) {
   return action$
     .ofType(LeagueActions.FETCH_COMPETITION)
-    .switchMap((action: any) =>
-      api.fetchLeague(action.payload).map(data =>
+    .switchMap((action: LoadLeague) =>
+      api.fetchLeague(action.payload).map((data: LeagueData) =>
         loadLeagueDone({
           id: action.payload,
           data

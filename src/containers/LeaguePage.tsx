@@ -1,12 +1,8 @@
 import { connect, Dispatch } from 'react-redux'
-import {
-  LeagueActions,
-  loadLeague,
-  Standing,
-  LeagueAction
-} from '../redux/leagues'
-import { MainState } from '../redux'
 
+import { LeagueActions, loadLeague, LeagueAction } from '../redux/leagues'
+import { Standing } from '../models'
+import { MainState } from '../redux'
 import League from '../components/League'
 
 function mapState(state: MainState) {

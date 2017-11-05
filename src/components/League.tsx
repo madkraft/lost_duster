@@ -3,8 +3,7 @@ import { pathOr } from 'ramda'
 import { Table } from 'semantic-ui-react'
 
 import { TABLE_FIELDS } from '../constants'
-import { LeagueData } from '../redux/leagues'
-import { LeagueStatus } from '../models/league-status.model'
+import { LeagueData, LeagueStatus } from '../models'
 
 export interface LeaguePageProps {
   data: LeagueData
@@ -16,6 +15,8 @@ export interface LeaguePageProps {
     }
   }
 }
+
+// move menu inside and trigger leagueId as a current league and fixtures with current matchday
 
 class League extends React.Component<LeaguePageProps, {}> {
   componentWillMount() {

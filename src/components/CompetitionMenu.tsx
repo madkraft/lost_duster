@@ -23,7 +23,7 @@ export default class CompetitionMenu extends React.Component<{}, {}> {
         />
         <Menu.Item
           as={Link}
-          to="/competitions/445/fixtures"
+          to="/competitions/445/fixtures/11"
           name="fixtures"
           active={activeItem === 'fixtures'}
           onClick={this.handleItemClick}
