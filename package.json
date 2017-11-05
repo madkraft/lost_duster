@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jest": "^21.1.5",
+    "@types/ramda": "^0.25.2",
+    "@types/react-redux": "^5.0.12",
+    "@types/react-router-dom": "^4.2.0",
+    "prettier": "^1.7.4",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -10,27 +15,21 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.2",
     "redux-observable": "^0.16.0",
     "rxjs": "^5.4.3",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.72.0"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-config-prettier": "^2.3.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-prettier": "^2.2.0",
-    "eslint-plugin-react": "^7.3.0",
-    "prettier": "^1.6.1",
-    "react-scripts": "1.0.13"
+    "@types/react": "^16.0.20",
+    "@types/react-dom": "^16.0.2",
+    "react-scripts-ts": "2.8.0",
+    "redux-devtools-extension": "^2.13.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
   }
 }
